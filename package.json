@@ -1,13 +1,13 @@
 {
   "name": "@gabrieloliveirarigo1302/ts_test_package",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc"
   },
   "keywords": [],
-  "author": "",
+  "author": "Gabriel de Oliveira Rigo",
   "license": "ISC",
   "description": "",
   "dependencies": {
