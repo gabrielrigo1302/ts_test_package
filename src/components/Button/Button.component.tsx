@@ -2,7 +2,7 @@ import React from "react"
 import { IButton } from "../../__types__/components/Button"
 
 
-const Button = ({
+export const Button = ({
     onClick,
     text
 }: IButton) => {
