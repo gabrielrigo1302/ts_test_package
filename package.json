@@ -1,6 +1,6 @@
 {
   "name": "@gabrieloliveirarigo1302/ts_test_package",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

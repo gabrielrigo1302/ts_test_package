@@ -1,2 +1,1 @@
-export * from './components';
-export * from './__types__';
+export * from './content'
