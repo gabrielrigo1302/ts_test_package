@@ -20,3 +20,8 @@ Passo a Passo da criação desse Package:
 - rodar no terminal: ```npm login```;
 - rodar no terminal: ```npm run build```;
 - rodar no terminal: ```npm publish```;
+
+Scripts de Geração:
+
+Componente: 
+- ```npm run plop component 'NomeDoComponente' ```

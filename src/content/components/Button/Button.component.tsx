@@ -1,5 +1,5 @@
 import React from "react"
-import { IButton } from "../../__types__/components/Button"
+import { IButton } from "../../../__types__/components"
 
 
 export const Button = ({
