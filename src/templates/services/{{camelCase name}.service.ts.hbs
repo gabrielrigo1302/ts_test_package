@@ -1,0 +1,30 @@
+import React from 'react';
+import { 
+    InputGetOne{{pascalCase name}},
+    InputGetAll{{pascalCase name}},
+    InputPost{{pascalCase name}},
+    InputPut{{pascalCase name}},
+    InputDelete{{pascalCase name}},
+    OutputGetOne{{pascalCase name}},
+    OutputPost{{pascalCase name}},
+    OutputPut{{pascalCase name}},
+    OutputDelete{{pascalCase name}},
+} from '../../../__types__/services/{{name}}';
+
+const getOne{{pascalCase name}} = ({}: InputGetOne{{pascalCase name}}): OutputGetOne{{pascalCase name}} => {} 
+
+const getAll{{pascalCase name}} = ({}: InputGetAll{{pascalCase name}}): OutputGetOne{{pascalCase name}}[] => {} 
+
+const post{{pascalCase name}} = ({}: InputPost{{pascalCase name}}): OutputPost{{pascalCase name}} => {}
+
+const put{{pascalCase name}} = ({}: InputPut{{pascalCase name}}): OutputDelete{{pascalCase name}} => {} 
+
+const delete{{pascalCase name}} = ({}: InputDelete{{pascalCase name}}): OutputDelete{{pascalCase name}} => {} 
+
+export const {{camelCase name}}Service = {
+    getOne{{pascalCase name}},
+    getAll{{pascalCase name}},
+    post{{pascalCase name}},
+    put{{pascalCase name}},
+    delete{{pascalCase name}}
+}
