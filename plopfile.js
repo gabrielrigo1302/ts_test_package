@@ -11,7 +11,7 @@ module.exports = function (plop) {
     actions: [
       {
         type: 'addMany',
-        destination: 'src/content/components/{{name}}',
+        destination: 'src/content/components/{{pascalCase name}}',
         templateFiles: 'src/env/templates/components/*.hbs',
         base: 'src/env/templates/components',
       },
@@ -19,18 +19,18 @@ module.exports = function (plop) {
         type: 'modify',
         path: 'src/content/components/index.ts',
         pattern: /$/,
-        template: `\nexport * from './{{name}}'`
+        template: `\nexport * from './{{pascalCase name}}'`
       },
       {
         type: 'add',
-        path: 'src/__types__/components/{{name}}/index.ts',
+        path: 'src/__types__/components/{{pascalCase name}}/index.ts',
         templateFile: 'src/env/templates/__types__/components/index.ts.hbs',
       },
       {
         type: 'modify',
         path: 'src/__types__/components/index.ts',
         pattern: /$/,
-        template: `\nexport * from './{{name}}'`
+        template: `\nexport * from './{{pascalCase name}}'`
       }
     ]
   });
@@ -57,17 +57,17 @@ module.exports = function (plop) {
         pattern: /$/,
         template: `\nexport * from './{{camelCase name}}'`
       },
-      // {
-      //   type: 'add',
-      //   path: 'src/__types__/components/{{name}}/index.ts',
-      //   templateFile: 'src/env/templates/__types__/adapters/index.ts.hbs',
-      // },
-      // {
-      //   type: 'modify',
-      //   path: 'src/__types__/adapters/index.ts',
-      //   pattern: /$/,
-      //   template: `\nexport * from './{{camelCase name}}'`
-      // }
+      {
+        type: 'add',
+        path: 'src/__types__/components/{{camelCase name}}/index.ts',
+        templateFile: 'src/env/templates/__types__/adapters/index.ts.hbs',
+      },
+      {
+        type: 'modify',
+        path: 'src/__types__/adapters/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './{{camelCase name}}'`
+      }
     ]
   });
 
