@@ -12,8 +12,8 @@ module.exports = function (plop) {
       {
         type: 'addMany',
         destination: 'src/content/components/{{name}}',
-        templateFiles: 'src/templates/components/*.hbs',
-        base: 'src/templates/components',
+        templateFiles: 'src/env/templates/components/*.hbs',
+        base: 'src/env/templates/components',
       },
       {
         type: 'modify',
@@ -24,7 +24,7 @@ module.exports = function (plop) {
       {
         type: 'add',
         path: 'src/__types__/components/{{name}}/index.ts',
-        templateFile: 'src/templates/__types__/components/index.ts.hbs',
+        templateFile: 'src/env/templates/__types__/components/index.ts.hbs',
       },
       {
         type: 'modify',
@@ -35,7 +35,7 @@ module.exports = function (plop) {
     ]
   });
 
-  plop.setGenerator('component', {
+  plop.setGenerator('adapter', {
     description: 'Create Adapter',
     prompts: [
       {
@@ -48,8 +48,8 @@ module.exports = function (plop) {
       {
         type: 'addMany',
         destination: 'src/content/adapters/{{camelCase name}}',
-        templateFiles: 'src/templates/adapters/*.hbs',
-        base: 'src/templates/adapters',
+        templateFiles: 'src/env/templates/adapters/*.hbs',
+        base: 'src/env/templates/adapters',
       },
       {
         type: 'modify',
@@ -60,7 +60,7 @@ module.exports = function (plop) {
       {
         type: 'add',
         path: 'src/__types__/adapters/{{camelCase name}}/index.ts',
-        templateFile: 'src/templates/__types__/adapters/index.ts.hbs',
+        templateFile: 'src/env/templates/__types__/adapters/index.ts.hbs',
       },
       {
         type: 'modify',
