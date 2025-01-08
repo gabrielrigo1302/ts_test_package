@@ -36,37 +36,37 @@ module.exports = function (plop) {
   });
 
   plop.setGenerator('component', {
-    description: 'Create React Component',
+    description: 'Create Adapter',
     prompts: [
       {
         type: 'input',
         name: 'name',
-        message: 'Name: '
+        message: 'Nome do Adapter: '
       },
     ],
     actions: [
       {
         type: 'addMany',
-        destination: 'src/content/components/{{name}}',
-        templateFiles: 'src/templates/components/*.hbs',
-        base: 'src/templates/components',
+        destination: 'src/content/adapters/{{camelCase name}}',
+        templateFiles: 'src/templates/adapters/*.hbs',
+        base: 'src/templates/adapters',
       },
       {
         type: 'modify',
-        path: 'src/content/components/index.ts',
+        path: 'src/content/adapters/index.ts',
         pattern: /$/,
-        template: `\nexport * from './{{name}}'`
+        template: `\nexport * from './{{camelCase name}}'`
       },
       {
         type: 'add',
-        path: 'src/__types__/components/{{name}}/index.ts',
-        templateFile: 'src/templates/__types__/components/index.ts.hbs',
+        path: 'src/__types__/adapters/{{camelCase name}}/index.ts',
+        templateFile: 'src/templates/__types__/adapters/index.ts.hbs',
       },
       {
         type: 'modify',
-        path: 'src/__types__/components/index.ts',
+        path: 'src/__types__/adapters/index.ts',
         pattern: /$/,
-        template: `\nexport * from './{{name}}'`
+        template: `\nexport * from './{{camelCase name}}'`
       }
     ]
   });
