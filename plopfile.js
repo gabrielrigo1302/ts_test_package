@@ -59,15 +59,15 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: 'src/__types__/adapters/{{camelCase name}}/index.ts',
+        path: 'src/__types__/adapters/{{name}}/index.ts',
         templateFile: 'src/env/templates/__types__/adapters/index.ts.hbs',
       },
-      {
-        type: 'modify',
-        path: 'src/__types__/adapters/index.ts',
-        pattern: /$/,
-        template: `\nexport * from './{{camelCase name}}'`
-      }
+      // {
+      //   type: 'modify',
+      //   path: 'src/__types__/adapters/index.ts',
+      //   pattern: /$/,
+      //   template: `\nexport * from './{{camelCase name}}'`
+      // }
     ]
   });
   };
