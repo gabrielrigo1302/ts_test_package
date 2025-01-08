@@ -5,7 +5,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "plop": "plop",
+    "generate": "plop",
     "publish": "npm version patch && npm publish"
   },
   "keywords": [],

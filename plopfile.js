@@ -57,11 +57,11 @@ module.exports = function (plop) {
         pattern: /$/,
         template: `\nexport * from './{{camelCase name}}'`
       },
-      {
-        type: 'add',
-        path: 'src/__types__/adapters/{{name}}/index.ts',
-        templateFile: 'src/env/templates/__types__/adapters/index.ts.hbs',
-      },
+      // {
+      //   type: 'add',
+      //   path: 'src/__types__/components/{{name}}/index.ts',
+      //   templateFile: 'src/env/templates/__types__/adapters/index.ts.hbs',
+      // },
       // {
       //   type: 'modify',
       //   path: 'src/__types__/adapters/index.ts',
@@ -70,4 +70,40 @@ module.exports = function (plop) {
       // }
     ]
   });
-  };
+
+  plop.setGenerator('hook', {
+    description: 'Create React Hook',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name: '
+      },
+    ],
+    actions: [
+      {
+        type: 'addMany',
+        destination: 'src/content/hooks/{{name}}',
+        templateFiles: 'src/env/templates/hooks/*.hbs',
+        base: 'src/env/templates/hooks',
+      },
+      {
+        type: 'modify',
+        path: 'src/content/hooks/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './{{name}}'`
+      },
+      {
+        type: 'add',
+        path: 'src/__types__/hooks/{{name}}/index.ts',
+        templateFile: 'src/env/templates/__types__/hooks/index.ts.hbs',
+      },
+      {
+        type: 'modify',
+        path: 'src/__types__/hooks/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './{{name}}'`
+      }
+    ]
+  });
+};

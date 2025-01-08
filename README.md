@@ -24,4 +24,4 @@ Passo a Passo da criação desse Package:
 Scripts de Geração:
 
 Componente: 
-- ```npm run plop component 'NomeDoComponente' ```
+- ```npm run generate component 'NomeDoComponente' ```
