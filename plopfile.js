@@ -9,101 +9,34 @@ module.exports = function (plop) {
       },
     ],
     actions: [
-      {
-        type: 'addMany',
-        destination: 'src/content/components/{{pascalCase name}}',
-        templateFiles: 'src/env/templates/components/*.hbs',
-        base: 'src/env/templates/components',
-      },
-      {
-        type: 'modify',
-        path: 'src/content/components/index.ts',
-        pattern: /$/,
-        template: `\nexport * from './{{pascalCase name}}'`
-      },
+      // {
+      //   type: 'addMany',
+      //   destination: 'src/content/components/{{pascalCase name}}',
+      //   templateFiles: 'src/env/templates/components/*.hbs',
+      //   base: 'src/env/templates/components',
+      // },
       {
         type: 'add',
-        path: 'src/__types__/components/{{pascalCase name}}/index.ts',
-        templateFile: 'src/env/templates/__types__/components/index.ts.hbs',
+        path: 'src/contents/components/{{pascalCase name}}/{{pascalCase name}}.component.tsx',
+        templateFile: 'src/__templates__/components/component.tsx.hbs',
       },
-      {
-        type: 'modify',
-        path: 'src/__types__/components/index.ts',
-        pattern: /$/,
-        template: `\nexport * from './{{pascalCase name}}'`
-      }
-    ]
-  });
-
-  plop.setGenerator('adapter', {
-    description: 'Create Adapter',
-    prompts: [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'Nome do Adapter: '
-      },
-    ],
-    actions: [
-      {
-        type: 'addMany',
-        destination: 'src/content/adapters/{{camelCase name}}',
-        templateFiles: 'src/env/templates/adapters/*.hbs',
-        base: 'src/env/templates/adapters',
-      },
-      {
-        type: 'modify',
-        path: 'src/content/adapters/index.ts',
-        pattern: /$/,
-        template: `\nexport * from './{{camelCase name}}'`
-      },
-      {
-        type: 'add',
-        path: 'src/__types__/components/{{camelCase name}}/index.ts',
-        templateFile: 'src/env/templates/__types__/adapters/index.ts.hbs',
-      },
-      {
-        type: 'modify',
-        path: 'src/__types__/adapters/index.ts',
-        pattern: /$/,
-        template: `\nexport * from './{{camelCase name}}'`
-      }
-    ]
-  });
-
-  plop.setGenerator('hook', {
-    description: 'Create React Hook',
-    prompts: [
-      {
-        type: 'input',
-        name: 'name',
-        message: 'Name: '
-      },
-    ],
-    actions: [
-      {
-        type: 'addMany',
-        destination: 'src/content/hooks/{{name}}',
-        templateFiles: 'src/env/templates/hooks/*.hbs',
-        base: 'src/env/templates/hooks',
-      },
-      {
-        type: 'modify',
-        path: 'src/content/hooks/index.ts',
-        pattern: /$/,
-        template: `\nexport * from './{{name}}'`
-      },
-      {
-        type: 'add',
-        path: 'src/__types__/hooks/{{name}}/index.ts',
-        templateFile: 'src/env/templates/__types__/hooks/index.ts.hbs',
-      },
-      {
-        type: 'modify',
-        path: 'src/__types__/hooks/index.ts',
-        pattern: /$/,
-        template: `\nexport * from './{{name}}'`
-      }
+      // {
+      //   type: 'modify',
+      //   path: 'src/content/components/index.ts',
+      //   pattern: /$/,
+      //   template: `\nexport * from './{{pascalCase name}}'`
+      // },
+      // {
+      //   type: 'add',
+      //   path: 'src/__types__/components/{{pascalCase name}}/index.ts',
+      //   templateFile: 'src/env/templates/__types__/components/index.ts.hbs',
+      // },
+      // {
+      //   type: 'modify',
+      //   path: 'src/__types__/components/index.ts',
+      //   pattern: /$/,
+      //   template: `\nexport * from './{{pascalCase name}}'`
+      // }
     ]
   });
 };
