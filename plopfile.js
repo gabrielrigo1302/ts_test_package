@@ -1,4 +1,5 @@
 module.exports = function (plop) {
+  
   plop.setGenerator('enum', {
     description: 'Create React Enum',
     prompts: [
@@ -19,6 +20,30 @@ module.exports = function (plop) {
         path: 'src/contents/__enums__/index.ts',
         pattern: /$/,
         template: `\nexport * from './{{pascalCase name}}Enums'`
+      },
+    ]
+  });
+
+  plop.setGenerator('global', {
+    description: 'Create React Global',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name: '
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/contents/__global__/{{pascalCase name}}.ts',
+        templateFile: 'src/__templates__/__global__/index.ts.hbs',
+      },
+      {
+        type: 'modify',
+        path: 'src/contents/__global__/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './{{pascalCase name}}'`
       },
     ]
   });
