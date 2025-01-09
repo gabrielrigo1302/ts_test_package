@@ -1,7 +1,7 @@
 module.exports = function (plop) {
   
   plop.setGenerator('enum', {
-    description: 'Create React Enum',
+    description: 'Create Enum',
     prompts: [
       {
         type: 'input',
@@ -25,7 +25,7 @@ module.exports = function (plop) {
   });
 
   plop.setGenerator('global', {
-    description: 'Create React Global',
+    description: 'Create Global Interface',
     prompts: [
       {
         type: 'input',
@@ -112,6 +112,40 @@ module.exports = function (plop) {
         path: 'src/contents/connections/index.ts',
         pattern: /$/,
         template: `\nexport * from './{{camelCase name}}'`
+      },
+    ]
+  });
+
+  plop.setGenerator('hook', {
+    description: 'Create React Hook',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name: '
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/contents/hooks/use{{pascalCase name}}/index.ts',
+        templateFile: 'src/__templates__/hooks/index.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/hooks/use{{pascalCase name}}/use{{pascalCase name}}.ts',
+        templateFile: 'src/__templates__/hooks/hook.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/hooks/use{{pascalCase name}}/use{{pascalCase name}}.type.ts',
+        templateFile: 'src/__templates__/hooks/type.ts.hbs',
+      },
+      {
+        type: 'modify',
+        path: 'src/contents/hooks/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './use{{pascalCase name}}'`
       },
     ]
   });
