@@ -1,0 +1,39 @@
+import { 
+    InputGetOne{{pascalCase name}},
+    InputGetAll{{pascalCase name}},
+    InputPost{{pascalCase name}},
+    InputPut{{pascalCase name}},
+    InputDelete{{pascalCase name}},
+    OutputGetOne{{pascalCase name}},
+    OutputPost{{pascalCase name}},
+    OutputPut{{pascalCase name}},
+    OutputDelete{{pascalCase name}},
+} from './{{camelCase name}}.type';
+
+const getOne{{pascalCase name}} = ({}: InputGetOne{{pascalCase name}}): OutputGetOne{{pascalCase name}} => {
+    return {}
+} 
+
+const getAll{{pascalCase name}} = ({}: InputGetAll{{pascalCase name}}): OutputGetOne{{pascalCase name}}[] => {
+    return []
+} 
+
+const post{{pascalCase name}} = ({}: InputPost{{pascalCase name}}): OutputPost{{pascalCase name}} => {
+    return {}
+}
+
+const put{{pascalCase name}} = ({}: InputPut{{pascalCase name}}): OutputPut{{pascalCase name}} => {
+    return {}
+} 
+
+const delete{{pascalCase name}} = ({}: InputDelete{{pascalCase name}}): OutputDelete{{pascalCase name}} => {
+    return {}
+} 
+
+export const {{camelCase name}}Service = {
+    getOne{{pascalCase name}},
+    getAll{{pascalCase name}},
+    post{{pascalCase name}},
+    put{{pascalCase name}},
+    delete{{pascalCase name}}
+}

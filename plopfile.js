@@ -83,7 +83,7 @@ module.exports = function (plop) {
   });
 
   plop.setGenerator('connection', {
-    description: 'Create React Connection',
+    description: 'Create Connection',
     prompts: [
       {
         type: 'input',
@@ -99,12 +99,12 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: 'src/contents/connections/{{camelCase name}}/{{camelCase name}}.connection.tsx',
+        path: 'src/contents/connections/{{camelCase name}}/{{camelCase name}}.connection.ts',
         templateFile: 'src/__templates__/connections/connection.ts.hbs',
       },
       {
         type: 'add',
-        path: 'src/contents/connections/{{camelCase name}}/{{camelCase name}}.type.tsx',
+        path: 'src/contents/connections/{{camelCase name}}/{{camelCase name}}.type.ts',
         templateFile: 'src/__templates__/connections/type.ts.hbs',
       },
       {
@@ -146,6 +146,40 @@ module.exports = function (plop) {
         path: 'src/contents/hooks/index.ts',
         pattern: /$/,
         template: `\nexport * from './use{{pascalCase name}}'`
+      },
+    ]
+  });
+
+  plop.setGenerator('service', {
+    description: 'Create Service',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name: '
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/contents/services/{{camelCase name}}/index.ts',
+        templateFile: 'src/__templates__/services/index.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/services/{{camelCase name}}/{{camelCase name}}.service.ts',
+        templateFile: 'src/__templates__/services/service.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/services/{{camelCase name}}/{{camelCase name}}.type.ts',
+        templateFile: 'src/__templates__/services/type.ts.hbs',
+      },
+      {
+        type: 'modify',
+        path: 'src/contents/services/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './{{camelCase name}}'`
       },
     ]
   });
