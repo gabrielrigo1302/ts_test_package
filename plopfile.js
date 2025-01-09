@@ -1,4 +1,28 @@
 module.exports = function (plop) {
+  plop.setGenerator('enum', {
+    description: 'Create React Enum',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name: '
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/contents/__enums__/{{pascalCase name}}Enums.ts',
+        templateFile: 'src/__templates__/__enums__/index.ts.hbs',
+      },
+      {
+        type: 'modify',
+        path: 'src/contents/__enums__/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './{{pascalCase name}}Enums'`
+      },
+    ]
+  });
+
   plop.setGenerator('component', {
     description: 'Create React Component',
     prompts: [
@@ -9,12 +33,6 @@ module.exports = function (plop) {
       },
     ],
     actions: [
-      // {
-      //   type: 'addMany',
-      //   destination: 'src/content/components/{{pascalCase name}}',
-      //   templateFiles: 'src/env/templates/components/*.hbs',
-      //   base: 'src/env/templates/components',
-      // },
       {
         type: 'add',
         path: 'src/contents/components/{{pascalCase name}}/index.ts',
@@ -28,7 +46,7 @@ module.exports = function (plop) {
       {
         type: 'add',
         path: 'src/contents/components/{{pascalCase name}}/{{pascalCase name}}.type.tsx',
-        templateFile: 'src/__templates__/components/__type__.index.ts.hbs',
+        templateFile: 'src/__templates__/components/type.ts.hbs',
       },
       {
         type: 'modify',
@@ -36,17 +54,6 @@ module.exports = function (plop) {
         pattern: /$/,
         template: `\nexport * from './{{pascalCase name}}'`
       },
-      // {
-      //   type: 'add',
-      //   path: 'src/__types__/components/{{pascalCase name}}/index.ts',
-      //   templateFile: 'src/env/templates/__types__/components/index.ts.hbs',
-      // },
-      // {
-      //   type: 'modify',
-      //   path: 'src/__types__/components/index.ts',
-      //   pattern: /$/,
-      //   template: `\nexport * from './{{pascalCase name}}'`
-      // }
     ]
   });
 };
