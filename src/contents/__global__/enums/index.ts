@@ -1,0 +1,2 @@
+
+export * from './ExemploEnumGenerico.enum'

@@ -1,7 +1,7 @@
 module.exports = function (plop) {
   
-  plop.setGenerator('enum', {
-    description: 'Create Enum',
+  plop.setGenerator('globalEnum', {
+    description: 'Create Global Enum',
     prompts: [
       {
         type: 'input',
@@ -12,20 +12,20 @@ module.exports = function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'src/contents/__enums__/{{pascalCase name}}Enums.ts',
-        templateFile: 'src/__templates__/__enums__/index.ts.hbs',
+        path: 'src/contents/__global__/enums/{{pascalCase name}}.enum.ts',
+        templateFile: 'src/__templates__/__global__/enums/enum.ts.hbs',
       },
       {
         type: 'modify',
-        path: 'src/contents/__enums__/index.ts',
+        path: 'src/contents/__global__/enums/index.ts',
         pattern: /$/,
-        template: `\nexport * from './{{pascalCase name}}Enums'`
+        template: `\nexport * from './{{pascalCase name}}.enum'`
       },
     ]
   });
 
-  plop.setGenerator('global', {
-    description: 'Create Global Interface',
+  plop.setGenerator('globalType', {
+    description: 'Create Global Type',
     prompts: [
       {
         type: 'input',
@@ -36,14 +36,38 @@ module.exports = function (plop) {
     actions: [
       {
         type: 'add',
-        path: 'src/contents/__global__/{{pascalCase name}}.ts',
-        templateFile: 'src/__templates__/__global__/index.ts.hbs',
+        path: 'src/contents/__global__/types/{{pascalCase name}}.type.ts',
+        templateFile: 'src/__templates__/__global__/types/type.ts.hbs',
       },
       {
         type: 'modify',
-        path: 'src/contents/__global__/index.ts',
+        path: 'src/contents/__global__/types/index.ts',
         pattern: /$/,
-        template: `\nexport * from './{{pascalCase name}}'`
+        template: `\nexport * from './{{pascalCase name}}.type'`
+      },
+    ]
+  });
+
+  plop.setGenerator('globalInterface', {
+    description: 'Create Global Interfaces',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name: '
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/contents/__global__/interfaces/{{pascalCase name}}.interface.ts',
+        templateFile: 'src/__templates__/__global__/interfaces/interface.ts.hbs',
+      },
+      {
+        type: 'modify',
+        path: 'src/contents/__global__/interfaces/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './{{pascalCase name}}.interface'`
       },
     ]
   });
