@@ -81,4 +81,38 @@ module.exports = function (plop) {
       },
     ]
   });
+
+  plop.setGenerator('connection', {
+    description: 'Create React Connection',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name: '
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/contents/connections/{{camelCase name}}/index.ts',
+        templateFile: 'src/__templates__/connections/index.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/connections/{{camelCase name}}/{{camelCase name}}.connection.tsx',
+        templateFile: 'src/__templates__/connections/connection.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/connections/{{camelCase name}}/{{camelCase name}}.type.tsx',
+        templateFile: 'src/__templates__/connections/type.ts.hbs',
+      },
+      {
+        type: 'modify',
+        path: 'src/contents/connections/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './{{camelCase name}}'`
+      },
+    ]
+  });
 };
