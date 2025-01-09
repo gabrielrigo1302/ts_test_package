@@ -1,2 +1,2 @@
 
-export * from './useExampleHook'
+export * from './useExemploHook'

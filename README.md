@@ -23,5 +23,10 @@ Passo a Passo da criação desse Package:
 
 Scripts de Geração:
 
-Componente: 
-- ```npm run generate component 'NomeDoComponente' ```
+- Enum:               ```npm run generate enum 'exemplo enum'```
+- Interface genérica: ```npm run generate global 'exemplo interface'```
+- Componente:         ```npm run generate component 'exemplo componente'```
+- Adapter:            ```npm run generate connection 'exemplo adapter'```
+- Hook:               ```npm run generate hook 'exemplo hook'```
+- Service:            ```npm run generate service 'exemplo service'```
+- Função Utilitária:  ```npm run generate util 'exemplo util'```

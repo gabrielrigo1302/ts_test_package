@@ -70,8 +70,18 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
-        path: 'src/contents/components/{{pascalCase name}}/{{pascalCase name}}.type.tsx',
+        path: 'src/contents/components/{{pascalCase name}}/{{pascalCase name}}.type.ts',
         templateFile: 'src/__templates__/components/type.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/components/{{pascalCase name}}/{{pascalCase name}}.enum.ts',
+        templateFile: 'src/__templates__/components/enum.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/components/{{pascalCase name}}/{{pascalCase name}}.interface.ts',
+        templateFile: 'src/__templates__/components/interface.ts.hbs',
       },
       {
         type: 'modify',
@@ -108,6 +118,16 @@ module.exports = function (plop) {
         templateFile: 'src/__templates__/connections/type.ts.hbs',
       },
       {
+        type: 'add',
+        path: 'src/contents/connections/{{camelCase name}}/{{camelCase name}}.enum.ts',
+        templateFile: 'src/__templates__/connections/enum.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/connections/{{camelCase name}}/{{camelCase name}}.interface.ts',
+        templateFile: 'src/__templates__/connections/interface.ts.hbs',
+      },
+      {
         type: 'modify',
         path: 'src/contents/connections/index.ts',
         pattern: /$/,
@@ -140,6 +160,16 @@ module.exports = function (plop) {
         type: 'add',
         path: 'src/contents/hooks/use{{pascalCase name}}/use{{pascalCase name}}.type.ts',
         templateFile: 'src/__templates__/hooks/type.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/hooks/use{{pascalCase name}}/use{{pascalCase name}}.interface.ts',
+        templateFile: 'src/__templates__/hooks/interface.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/hooks/use{{pascalCase name}}/use{{pascalCase name}}.enum.ts',
+        templateFile: 'src/__templates__/hooks/enum.ts.hbs',
       },
       {
         type: 'modify',
@@ -176,8 +206,62 @@ module.exports = function (plop) {
         templateFile: 'src/__templates__/services/type.ts.hbs',
       },
       {
+        type: 'add',
+        path: 'src/contents/services/{{camelCase name}}/{{camelCase name}}.interface.ts',
+        templateFile: 'src/__templates__/services/interface.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/services/{{camelCase name}}/{{camelCase name}}.enum.ts',
+        templateFile: 'src/__templates__/services/enum.ts.hbs',
+      },
+      {
         type: 'modify',
         path: 'src/contents/services/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './{{camelCase name}}'`
+      },
+    ]
+  });
+
+  plop.setGenerator('util', {
+    description: 'Create Util',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name: '
+      },
+    ],
+    actions: [
+      {
+        type: 'add',
+        path: 'src/contents/utils/{{camelCase name}}/index.ts',
+        templateFile: 'src/__templates__/utils/index.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/utils/{{camelCase name}}/{{camelCase name}}.util.ts',
+        templateFile: 'src/__templates__/utils/util.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/utils/{{camelCase name}}/{{camelCase name}}.type.ts',
+        templateFile: 'src/__templates__/utils/type.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/utils/{{camelCase name}}/{{camelCase name}}.interface.ts',
+        templateFile: 'src/__templates__/utils/interface.ts.hbs',
+      },
+      {
+        type: 'add',
+        path: 'src/contents/utils/{{camelCase name}}/{{camelCase name}}.enum.ts',
+        templateFile: 'src/__templates__/utils/enum.ts.hbs',
+      },
+      {
+        type: 'modify',
+        path: 'src/contents/utils/index.ts',
         pattern: /$/,
         template: `\nexport * from './{{camelCase name}}'`
       },

@@ -1,2 +1,2 @@
 
-export * from './exampleConnection'
+export * from './exemploAdapter'
