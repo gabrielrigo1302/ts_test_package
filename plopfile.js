@@ -17,15 +17,25 @@ module.exports = function (plop) {
       // },
       {
         type: 'add',
+        path: 'src/contents/components/{{pascalCase name}}/index.ts',
+        templateFile: 'src/__templates__/components/index.ts.hbs',
+      },
+      {
+        type: 'add',
         path: 'src/contents/components/{{pascalCase name}}/{{pascalCase name}}.component.tsx',
         templateFile: 'src/__templates__/components/component.tsx.hbs',
       },
-      // {
-      //   type: 'modify',
-      //   path: 'src/content/components/index.ts',
-      //   pattern: /$/,
-      //   template: `\nexport * from './{{pascalCase name}}'`
-      // },
+      {
+        type: 'add',
+        path: 'src/contents/components/{{pascalCase name}}/{{pascalCase name}}.type.tsx',
+        templateFile: 'src/__templates__/components/__type__.index.ts.hbs',
+      },
+      {
+        type: 'modify',
+        path: 'src/contents/components/index.ts',
+        pattern: /$/,
+        template: `\nexport * from './{{pascalCase name}}'`
+      },
       // {
       //   type: 'add',
       //   path: 'src/__types__/components/{{pascalCase name}}/index.ts',
