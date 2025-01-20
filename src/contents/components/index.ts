@@ -1,2 +1,2 @@
 
-export * from './NomeDoComponente'
+export * from './ExemploComponente'

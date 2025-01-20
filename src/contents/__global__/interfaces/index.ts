@@ -1,2 +1,2 @@
 
-export * from './ExemploInterfaceGenerica.interface'
+export * from './ExemploInterfaceGenerico.interface'
